@@ -58,7 +58,7 @@
             </div>
             
              <!-- Floating Badge -->
-            <div class="absolute top-6 right-6 p-2 pr-4 bg-black/40 backdrop-blur-xl rounded-full border border-primary/30 flex items-center gap-3 shadow-[0_0_20px_rgba(0,0,0,0.5)] group-hover:border-primary/60 transition-colors animate-fade-in delay-500">
+            <div class="absolute top-6 right-6 z-20 p-2 pr-4 bg-black/60 backdrop-blur-xl rounded-full border border-primary/30 flex items-center gap-3 shadow-[0_0_20px_rgba(0,0,0,0.5)] group-hover:border-primary/60 transition-colors animate-fade-in delay-500">
                <div class="relative flex items-center justify-center size-8">
                  <div class="absolute inset-0 bg-primary/20 rounded-full animate-ping"></div>
                  <div class="relative w-2.5 h-2.5 rounded-full bg-primary shadow-[0_0_10px_rgba(74,222,128,1)]"></div>
