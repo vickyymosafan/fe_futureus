@@ -47,17 +47,23 @@
           <div class="mt-4 rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10 relative aspect-[16/9] w-full bg-white/5 backdrop-blur-md group hover:border-primary/30 transition-all duration-500 opacity-0 animate-scale-in delay-300 hover:-translate-y-2">
             <!-- Abstract Gradient/Visual -->
             <div class="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-black/40 z-0"></div>
-            <div class="absolute inset-0 flex items-center justify-center z-20">
-              <div class="relative">
-                <div class="absolute inset-0 bg-primary/30 blur-2xl rounded-full"></div>
-                <span class="material-symbols-outlined text-white/90 text-7xl relative z-10 drop-shadow-lg group-hover:scale-110 transition-transform duration-500">favorite</span>
-              </div>
+            
+            <!-- 3D Secure Shield Image -->
+            <div class="absolute inset-0 flex items-center justify-center z-10">
+               <img 
+                src="/images/secure_shield.png" 
+                alt="Secure Shield Heart" 
+                class="w-full h-full object-cover drop-shadow-[0_0_30px_rgba(74,222,128,0.3)] animate-float mix-blend-screen opacity-90"
+               />
             </div>
             
-             <!-- Floating Elements -->
-            <div class="absolute top-4 right-4 p-3 bg-white/10 backdrop-blur-md rounded-2xl border border-white/10 flex gap-3 animate-float">
-               <div class="w-2 h-2 rounded-full bg-green-400 shadow-[0_0_8px_rgba(74,222,128,1)]"></div>
-               <span class="text-xs font-bold text-white/80">Sistem Aman</span>
+             <!-- Floating Badge -->
+            <div class="absolute top-6 right-6 p-2 pr-4 bg-black/40 backdrop-blur-xl rounded-full border border-primary/30 flex items-center gap-3 shadow-[0_0_20px_rgba(0,0,0,0.5)] group-hover:border-primary/60 transition-colors animate-fade-in delay-500">
+               <div class="relative flex items-center justify-center size-8">
+                 <div class="absolute inset-0 bg-primary/20 rounded-full animate-ping"></div>
+                 <div class="relative w-2.5 h-2.5 rounded-full bg-primary shadow-[0_0_10px_rgba(74,222,128,1)]"></div>
+               </div>
+               <span class="text-xs font-bold text-white/90 tracking-wider uppercase">Sistem Aman</span>
             </div>
           </div>
         </div>
