@@ -31,10 +31,159 @@
           </div>
         </div>
         <!-- Mobile Menu Button -->
-        <button class="md:hidden text-white">
-          <span class="material-symbols-outlined">menu</span>
+        <button 
+          class="md:hidden text-white p-2 hover:bg-white/10 rounded-lg transition-colors"
+          @click="toggleMenu"
+          :aria-expanded="isMenuOpen"
+          aria-label="Toggle menu"
+        >
+          <span class="material-symbols-outlined text-2xl">{{ isMenuOpen ? 'close' : 'menu' }}</span>
         </button>
       </header>
     </div>
+
+    <!-- Mobile Menu Overlay -->
+    <Teleport to="body">
+      <Transition name="fade">
+        <div 
+          v-if="isMenuOpen" 
+          class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[9999] md:hidden"
+          @click="closeMenu"
+        ></div>
+      </Transition>
+
+      <!-- Mobile Menu Drawer -->
+      <Transition name="slide">
+        <div 
+          v-if="isMenuOpen" 
+          class="fixed top-0 right-0 h-full w-[85vw] max-w-[320px] bg-background-dark/95 backdrop-blur-2xl border-l border-white/10 z-[10000] md:hidden shadow-2xl flex flex-col"
+        >
+          <!-- Drawer Header -->
+          <div class="flex items-center justify-between p-6 border-b border-white/5">
+            <h3 class="text-white font-bold text-xl tracking-tight">Menu</h3>
+            <button 
+              class="text-gray-400 hover:text-white p-2 hover:bg-white/10 rounded-xl transition-all active:scale-95"
+              @click="closeMenu"
+              aria-label="Close menu"
+            >
+              <span class="material-symbols-outlined text-2xl">close</span>
+            </button>
+          </div>
+          
+          <!-- Drawer Links -->
+          <nav class="flex-1 p-6 space-y-4 overflow-y-auto">
+            <div class="stagger-1">
+              <a 
+                href="#fitur" 
+                class="flex items-center gap-4 p-4 text-gray-300 hover:text-white hover:bg-white/5 rounded-2xl transition-all group border border-transparent hover:border-white/5"
+                @click="closeMenu"
+              >
+                <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                  <span class="material-symbols-outlined text-primary text-xl">auto_awesome</span>
+                </div>
+                <div class="flex flex-col">
+                  <span class="font-bold text-lg">Fitur Utama</span>
+                  <span class="text-xs text-gray-500">Apa yang bisa dilakukan?</span>
+                </div>
+              </a>
+            </div>
+
+            <div class="stagger-2">
+              <a 
+                href="#cara-kerja" 
+                class="flex items-center gap-4 p-4 text-gray-300 hover:text-white hover:bg-white/5 rounded-2xl transition-all group border border-transparent hover:border-white/5"
+                @click="closeMenu"
+              >
+                <div class="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center group-hover:bg-blue-500/20 transition-colors">
+                  <span class="material-symbols-outlined text-blue-500 text-xl">play_circle</span>
+                </div>
+                 <div class="flex flex-col">
+                  <span class="font-bold text-lg">Cara Kerja</span>
+                  <span class="text-xs text-gray-500">Langkah mudah memulai</span>
+                </div>
+              </a>
+            </div>
+          </nav>
+
+          <!-- Drawer Actions (Thumb Friendly) -->
+          <div class="p-6 border-t border-white/5 space-y-4 bg-black/10">
+            <div class="stagger-3">
+               <NuxtLink 
+                to="/register" 
+                class="flex items-center justify-center gap-2 rounded-2xl h-14 px-4 bg-primary text-background-dark font-black text-lg hover:bg-[#0fd650] active:scale-[0.98] transition-all shadow-[0_0_20px_rgba(19,236,91,0.2)] w-full"
+                @click="closeMenu"
+              >
+                <span>Daftar Gratis</span>
+                <span class="material-symbols-outlined text-xl">arrow_forward</span>
+              </NuxtLink>
+            </div>
+            <div class="stagger-4">
+              <NuxtLink 
+                to="/login" 
+                class="flex items-center justify-center rounded-2xl h-14 px-4 bg-transparent border border-white/20 text-white font-bold text-lg hover:bg-white/5 active:scale-[0.98] transition-all w-full"
+                @click="closeMenu"
+              >
+                Masuk
+              </NuxtLink>
+            </div>
+          </div>
+        </div>
+      </Transition>
+    </Teleport>
   </div>
 </template>
+
+<script setup lang="ts">
+const isMenuOpen = ref(false)
+
+const toggleMenu = () => {
+  isMenuOpen.value = !isMenuOpen.value
+}
+
+const closeMenu = () => {
+  isMenuOpen.value = false
+}
+
+// Lock body scroll when menu is open
+watch(isMenuOpen, (open) => {
+  if (import.meta.client) {
+    document.body.style.overflow = open ? 'hidden' : ''
+  }
+})
+</script>
+
+<style scoped>
+/* Fade transition for overlay */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+/* Slide transition for drawer */
+.slide-enter-active,
+.slide-leave-active {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.slide-enter-from,
+.slide-leave-to {
+  transform: translateX(100%);
+}
+
+/* Staggered Animations */
+.slide-enter-active .stagger-1 { transition: opacity 0.4s ease 0.1s, transform 0.4s ease 0.1s; }
+.slide-enter-active .stagger-2 { transition: opacity 0.4s ease 0.15s, transform 0.4s ease 0.15s; }
+.slide-enter-active .stagger-3 { transition: opacity 0.4s ease 0.2s, transform 0.4s ease 0.2s; }
+.slide-enter-active .stagger-4 { transition: opacity 0.4s ease 0.25s, transform 0.4s ease 0.25s; }
+
+.slide-enter-from .stagger-1,
+.slide-enter-from .stagger-2,
+.slide-enter-from .stagger-3,
+.slide-enter-from .stagger-4 {
+  opacity: 0;
+  transform: translateX(20px);
+}
+</style>
