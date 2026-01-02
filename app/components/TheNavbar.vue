@@ -18,17 +18,17 @@
         <!-- Desktop Menu -->
         <div class="hidden md:flex flex-1 justify-end gap-8 items-center">
           <div class="flex items-center gap-9">
-            <NuxtLink to="#" class="text-white hover:text-primary transition-colors text-sm font-medium leading-normal">Fitur</NuxtLink>
-            <NuxtLink to="#" class="text-white hover:text-primary transition-colors text-sm font-medium leading-normal">Tentang</NuxtLink>
-            <NuxtLink to="#" class="text-white hover:text-primary transition-colors text-sm font-medium leading-normal">Harga</NuxtLink>
+            <a href="#fitur" class="text-white hover:text-primary transition-colors text-sm font-medium leading-normal">Fitur</a>
+            <a href="#tentang" class="text-white hover:text-primary transition-colors text-sm font-medium leading-normal">Tentang</a>
+            <a href="#harga" class="text-white hover:text-primary transition-colors text-sm font-medium leading-normal">Harga</a>
           </div>
           <div class="flex gap-2">
-            <button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-background-dark text-sm font-bold hover:bg-[#0fd650] transition-colors">
+            <NuxtLink to="/login" class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-background-dark text-sm font-bold hover:bg-[#0fd650] transition-colors">
               <span class="truncate">Daftar</span>
-            </button>
-            <button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-surface-dark border border-border-dark text-white text-sm font-bold hover:bg-border-dark transition-colors">
+            </NuxtLink>
+            <NuxtLink to="/login" class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-surface-dark border border-border-dark text-white text-sm font-bold hover:bg-border-dark transition-colors">
               <span class="truncate">Masuk</span>
-            </button>
+            </NuxtLink>
           </div>
         </div>
         <!-- Mobile Menu Button -->
