@@ -13,7 +13,7 @@
           FutureUs adalah ruang digital privat untuk pasangan mengatur impian, kenangan, dan keseharian dalam satu harmoni.
         </h2>
         <div class="flex flex-wrap gap-4 justify-center mt-4">
-          <NuxtLink to="/login" class="flex min-w-[160px] cursor-pointer items-center justify-center rounded-lg h-12 px-6 bg-primary text-background-dark text-base font-bold hover:bg-[#0fd650] hover:scale-105 transition-all shadow-[0_0_20px_rgba(19,236,91,0.3)]">
+          <NuxtLink to="/register" class="flex min-w-[160px] cursor-pointer items-center justify-center rounded-lg h-12 px-6 bg-primary text-background-dark text-base font-bold hover:bg-[#0fd650] hover:scale-105 transition-all shadow-[0_0_20px_rgba(19,236,91,0.3)]">
             <span class="truncate">Daftar Sekarang</span>
           </NuxtLink>
           <NuxtLink to="/login" class="flex min-w-[120px] cursor-pointer items-center justify-center rounded-lg h-12 px-6 bg-white/10 backdrop-blur-sm border border-white/20 text-white text-base font-bold hover:bg-white/20 transition-all">

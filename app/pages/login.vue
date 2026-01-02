@@ -17,9 +17,9 @@
       </NuxtLink>
       <div class="flex items-center gap-4">
         <span class="hidden sm:inline text-sm text-text-secondary font-medium">Belum punya akun?</span>
-        <button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-primary/10 hover:bg-primary/20 text-primary border border-primary/30 text-sm font-bold transition-colors">
+        <NuxtLink to="/register" class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-primary/10 hover:bg-primary/20 text-primary border border-primary/30 text-sm font-bold transition-colors">
           <span class="truncate">Daftar</span>
-        </button>
+        </NuxtLink>
       </div>
     </header>
 
@@ -108,7 +108,7 @@
 
           <div class="mt-6 text-center md:hidden">
             <p class="text-text-secondary text-sm">
-              Belum punya akun? <button type="button" class="text-primary font-bold hover:underline">Daftar</button>
+              Belum punya akun? <NuxtLink to="/register" class="text-primary font-bold hover:underline">Daftar</NuxtLink>
             </p>
           </div>
         </div>

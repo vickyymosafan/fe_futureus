@@ -23,7 +23,7 @@
             <a href="#harga" class="text-white hover:text-primary transition-colors text-sm font-medium leading-normal">Harga</a>
           </div>
           <div class="flex gap-2">
-            <NuxtLink to="/login" class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-background-dark text-sm font-bold hover:bg-[#0fd650] transition-colors">
+            <NuxtLink to="/register" class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-background-dark text-sm font-bold hover:bg-[#0fd650] transition-colors">
               <span class="truncate">Daftar</span>
             </NuxtLink>
             <NuxtLink to="/login" class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-surface-dark border border-border-dark text-white text-sm font-bold hover:bg-border-dark transition-colors">
