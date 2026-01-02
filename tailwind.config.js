@@ -19,6 +19,8 @@ export default {
         "border-green": "#326744", // Added from design
         "input-bg": "#193322",     // Added from design
         "text-secondary": "#92c9a4", // Metric: #92c9a4 from design
+        "card-dark": "#1c3324",      // Better blend for dark mode cards
+        "card-border": "#326744",    // Alias for border-green
       },
       fontFamily: {
         "display": ["Manrope", "sans-serif"],

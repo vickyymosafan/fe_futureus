@@ -19,8 +19,7 @@
         <div class="hidden md:flex flex-1 justify-end gap-8 items-center">
           <div class="flex items-center gap-9">
             <a href="#fitur" class="text-white hover:text-primary transition-colors text-sm font-medium leading-normal">Fitur</a>
-            <a href="#tentang" class="text-white hover:text-primary transition-colors text-sm font-medium leading-normal">Tentang</a>
-            <a href="#harga" class="text-white hover:text-primary transition-colors text-sm font-medium leading-normal">Harga</a>
+            <a href="#cara-kerja" class="text-white hover:text-primary transition-colors text-sm font-medium leading-normal">Cara Kerja</a>
           </div>
           <div class="flex gap-2">
             <NuxtLink to="/register" class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-background-dark text-sm font-bold hover:bg-[#0fd650] transition-colors">

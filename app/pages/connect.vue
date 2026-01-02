@@ -132,17 +132,53 @@
                 <div class="absolute bottom-10 right-10 w-24 h-24 bg-blue-500 rounded-full blur-3xl"></div>
               </div>
               
-              <!-- Status Icon -->
-              <div class="w-20 h-20 rounded-full bg-slate-200 dark:bg-[#23482f] flex items-center justify-center mb-6 relative z-10">
-                <span class="material-symbols-outlined text-4xl text-slate-400 dark:text-[#5c8a6e]">link_off</span>
-              </div>
-              
-              <div class="flex flex-col gap-2 max-w-xs relative z-10">
-                <h3 class="text-lg font-bold">Status Koneksi</h3>
-                <p class="text-sm text-slate-500 dark:text-[#92c9a4]">
-                  Belum ada undangan terkirim atau diterima. Gunakan formulir di sebelah kiri untuk memulai.
-                </p>
-              </div>
+              <!-- Empty State -->
+              <template v-if="invitationStatus === 'idle'">
+                <div class="w-20 h-20 rounded-full bg-slate-200 dark:bg-[#23482f] flex items-center justify-center mb-6 relative z-10">
+                  <span class="material-symbols-outlined text-4xl text-slate-400 dark:text-[#5c8a6e]">link_off</span>
+                </div>
+                <div class="flex flex-col gap-2 max-w-xs relative z-10">
+                  <h3 class="text-lg font-bold">Status Koneksi</h3>
+                  <p class="text-sm text-slate-500 dark:text-[#92c9a4]">
+                    Belum ada undangan terkirim atau diterima. Gunakan formulir di sebelah kiri untuk memulai.
+                  </p>
+                </div>
+              </template>
+
+              <!-- Pending State -->
+              <template v-else-if="invitationStatus === 'pending'">
+                <div class="w-20 h-20 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center mb-6 relative z-10">
+                  <span class="material-symbols-outlined text-4xl text-amber-500 animate-pulse">hourglass_top</span>
+                </div>
+                <div class="flex flex-col gap-2 max-w-xs relative z-10">
+                  <h3 class="text-lg font-bold">Menunggu Konfirmasi</h3>
+                  <p class="text-sm text-slate-500 dark:text-[#92c9a4]">
+                    Undangan telah dikirim ke <span class="font-bold text-white">{{ partnerEmail }}</span>. Menunggu pasangan untuk menyetujui.
+                  </p>
+                </div>
+                <!-- Simulate Verification Button (for demo) -->
+                <button 
+                  type="button"
+                  class="mt-6 px-6 py-3 bg-primary hover:bg-green-400 text-black font-bold rounded-lg shadow-lg transition-all transform active:scale-95 flex items-center gap-2 relative z-10"
+                  @click="simulateVerification"
+                >
+                  <span class="material-symbols-outlined">check_circle</span>
+                  <span>Simulasi Verifikasi</span>
+                </button>
+              </template>
+
+              <!-- Verified State -->
+              <template v-else-if="invitationStatus === 'verified'">
+                <div class="w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center mb-6 relative z-10">
+                  <span class="material-symbols-outlined text-4xl text-primary">link</span>
+                </div>
+                <div class="flex flex-col gap-2 max-w-xs relative z-10">
+                  <h3 class="text-lg font-bold text-primary">Terhubung! 🎉</h3>
+                  <p class="text-sm text-slate-500 dark:text-[#92c9a4]">
+                    Akun berhasil terhubung. Mengalihkan ke dashboard...
+                  </p>
+                </div>
+              </template>
             </div>
           </div>
         </div>
@@ -190,10 +226,24 @@ useHead({
   title: 'Halaman Sambungkan Pasangan - FutureUs'
 })
 
+const router = useRouter()
 const partnerEmail = ref('')
+const invitationSent = ref(false)
+const invitationStatus = ref<'idle' | 'pending' | 'verified'>('idle')
 
 const handleSendInvitation = () => {
+  if (!partnerEmail.value) return
   console.log('Sending invitation to:', partnerEmail.value)
-  // TODO: Implement actual invitation logic
+  invitationSent.value = true
+  invitationStatus.value = 'pending'
+}
+
+const simulateVerification = () => {
+  // Simulate partner verification (in real app this would be via backend)
+  invitationStatus.value = 'verified'
+  // Redirect to dashboard after short delay
+  setTimeout(() => {
+    router.push('/dashboard')
+  }, 1000)
 }
 </script>

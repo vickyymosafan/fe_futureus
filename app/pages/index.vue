@@ -2,9 +2,14 @@
   <div>
     <TheNavbar />
     <HeroSection />
-    <FeaturesSection />
-    <TestimonialsSection />
-    <CtaSection />
+    <LandingProblemSection />
+    <LandingSolutionSection />
+    <LandingFeaturesSection />
+    <LandingHowItWorksSection id="cara-kerja" />
+    <LandingProductPreviewSection />
+    <LandingEmotionalValueSection />
+    <LandingUseCaseSection />
+    <LandingFinalCtaSection />
     <TheFooter />
   </div>
 </template>
