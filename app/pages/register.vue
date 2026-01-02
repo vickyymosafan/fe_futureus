@@ -212,7 +212,12 @@ const passwordStrengthLabel = computed(() => {
   return 'Sangat Kuat'
 })
 
+const router = useRouter()
+
 const handleSubmit = () => {
   console.log('Register attempt:', { email: email.value, password: password.value })
+  // TODO: Add actual registration logic here
+  // On successful registration, redirect to connect page
+  router.push('/connect')
 }
 </script>

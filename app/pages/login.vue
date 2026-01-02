@@ -57,7 +57,7 @@
             <p class="text-text-secondary text-base font-normal">Masuk untuk melanjutkan perjalanan cinta Anda.</p>
           </div>
 
-          <form class="flex flex-col gap-5" @submit.prevent>
+          <form class="flex flex-col gap-5" @submit.prevent="handleLogin">
             <!-- Email Input -->
             <label class="flex flex-col w-full gap-2">
               <span class="text-white text-sm font-semibold leading-normal">Alamat Email</span>
@@ -83,7 +83,7 @@
             </label>
 
             <!-- Submit Button -->
-            <button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-primary hover:bg-[#0fd651] active:scale-[0.98] transition-all text-background-dark text-base font-bold leading-normal tracking-[0.015em] mt-2 shadow-[0_0_15px_rgba(19,236,91,0.2)]">
+            <button type="submit" class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-primary hover:bg-[#0fd651] active:scale-[0.98] transition-all text-background-dark text-base font-bold leading-normal tracking-[0.015em] mt-2 shadow-[0_0_15px_rgba(19,236,91,0.2)]">
               <span class="truncate">Masuk</span>
             </button>
 
@@ -128,4 +128,13 @@ definePageMeta({
 useHead({
   title: 'Halaman Login - FutureUs'
 })
+
+const router = useRouter()
+
+const handleLogin = () => {
+  console.log('Login attempt')
+  // TODO: Add actual login logic here
+  // On successful login, redirect to connect page
+  router.push('/connect')
+}
 </script>
