@@ -11,11 +11,29 @@
         </h2>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-        <!-- Connecting Line (Desktop) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative items-start">
+        <!-- Connecting Line (Desktop) - Enhanced -->
         <div
-          class="hidden md:block absolute top-12 left-[16%] right-[16%] h-0.5 bg-gray-200 dark:bg-card-border -z-10"
-        ></div>
+          class="hidden md:block absolute top-14 left-[15%] right-[15%] h-[2px] -z-10"
+        >
+          <svg
+            width="100%"
+            height="100%"
+            viewBox="0 0 100 2"
+            preserveAspectRatio="none"
+          >
+            <line
+              x1="0"
+              y1="1"
+              x2="100"
+              y2="1"
+              vector-effect="non-scaling-stroke"
+              class="stroke-gray-200 dark:stroke-card-border"
+              stroke-width="2"
+              stroke-dasharray="8 8"
+            />
+          </svg>
+        </div>
 
         <!-- Step 1 -->
         <div class="flex flex-col items-center text-center">
